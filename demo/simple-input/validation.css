@@ -1,0 +1,39 @@
+[no-require-dot] .form__label::before {
+  content: none;
+}
+
+.form__error, .form__valid {
+  display: none;
+}
+
+input:not([type=range]):disabled, button:disabled,
+.form__input:disabled ~ .form__btn--file  {
+  background: var(--disabled-bg)!important;
+  color: var(--disabled-color) !important;
+  border-color: var(--disabled-border) !important;
+}
+
+input:valid:not(:placeholder-shown) {
+  border-color: var(--valid-accent);
+}
+
+input:valid:not(:placeholder-shown) ~ .form__valid {
+  display: block;
+}
+
+input:invalid:not(:placeholder-shown), 
+[invalid] {
+  border-color: var(--invalid-accent);
+}
+
+input:invalid:not(:placeholder-shown) ~ .form__error,
+[invalid] ~ .form__error {
+  display: block;
+}
+
+input:invalid:not(:placeholder-shown) ~ .form__label,
+input:invalid:not(:placeholder-shown) ~ .form__error,
+[invalid] ~ .form__error,
+[invalid] ~ .form__label {
+  color: var(--invalid-accent) !important;
+}

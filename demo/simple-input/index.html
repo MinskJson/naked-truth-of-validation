@@ -1,0 +1,96 @@
+<html>
+
+<head>
+    <title>Simple input</title>
+    <link rel="stylesheet" href="./theme.css">
+    <style>
+        /* outline */
+        :focus {
+            outline: none;
+            transition: box-shadow .3s ease-in-out;
+            box-shadow: var(--outline);
+        }
+    </style>
+    <style>
+        .form__label:before {
+            content: '*';
+            color: var(--invalid-accent);
+        }
+
+        .form__label:after {
+            content: ':';
+        }
+
+        [no-dot] .form__label:before {
+            content: '';
+        }
+    </style>
+
+    <style>
+        .form__valid, .form__error {
+            display: none;
+        }
+
+        .form__input:valid:not(:placeholder-shown) {
+            border-color: var(--valid-accent);
+        }
+
+        .form__input:invalid:not(:placeholder-shown) {
+            border-color: var(--invalid-accent);
+        }
+
+        .form__input:invalid:not(:placeholder-shown) ~ .form__error,
+        .form__input:invalid:not(:placeholder-shown) ~ .form__label {
+            display: block;
+            color: var(--invalid-accent);
+        }
+
+        .form__input:valid:not(:placeholder-shown) ~ .form__valid {
+            display: flex;
+        }
+
+        form:invalid .form__btn--primary, .form__btn:disabled {
+            border-color: var(--disabled-border);
+            color: var(--disabled-color);
+            background-color: var(--disabled-bg);
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- demo: no-require-dot -->
+    <form class="form">
+        <h2 class="form__title">Welcome on form validation</h2>
+        <!-- demo: disabled -->
+        <fieldset class="form__fieldset">
+            <!-- input -->
+            <!-- demo: placeholder -->
+            <!-- demo: order -->
+            <!-- demo: focus by label -->
+            <!-- demo: require dot and : -->
+            <!-- demo: error absolute -->
+            <!-- demo: error border -->
+            <!-- demo: error label -->
+            <!-- demo: valid check after input -->
+            <label class="form__item">
+                <input class="form__input form__input--with_valid"
+                    type="text"
+                    placeholder="Jarry Muer"
+                    requried
+                    pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" />
+                <span class="form__valid">v</span>
+                <span class="form__label">Name</span>
+                <span class="form__error">Error message</span>
+            </label>
+
+            <!-- actions -->
+            <div class="form__item form__item--actions">
+                <button class="form__btn form__btn--link" type="button">Cancel</button>
+                <button class="form__btn form__btn--primary" type="submit">Submit</button>
+            </div>
+        </fieldset>
+    </form>
+</body>
+
+</html>

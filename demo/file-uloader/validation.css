@@ -1,0 +1,55 @@
+[no-require-dot] .form__label::before {
+    content: none;
+}
+
+.form__error,
+.form__valid {
+    display: none;
+}
+
+input:not([type=range]):disabled,
+button:disabled,
+.form__input:disabled~.form__btn--file,
+/* .form:invalid .form__btn--primary, */
+.form__input:disabled~.form__input--placeholder {
+    background: var(--disabled-bg) !important;
+    color: var(--disabled-color) !important;
+    border-color: var(--disabled-border) !important;
+    cursor: not-allowed;
+}
+
+input:valid:not(:placeholder-shown),
+input:valid:not(:placeholder-shown)~.form__input--placeholder,
+[valid],
+[valid]~.select-selected,
+input:valid~.form__btn--file {
+    border-color: var(--valid-accent);
+}
+
+input:valid:not(:placeholder-shown)~.form__valid {
+    display: flex;
+}
+
+input:invalid:not(:placeholder-shown):not([untouched]),
+input:invalid:not(:placeholder-shown):not([untouched])~.form__input--placeholder,
+input:invalid:not(:placeholder-shown):not([untouched])~.form__btn--file,
+[invalid],
+[invalid]~.select-selected,
+[invalid]~.form__btn--file {
+    border-color: var(--invalid-accent);
+}
+
+input:invalid:not(:placeholder-shown):not([untouched])~.form__error,
+[invalid]~.form__error {
+    display: block;
+}
+
+input:invalid:not(:placeholder-shown):not([untouched])~.form__label,
+input:invalid:not(:placeholder-shown):not([untouched])~.form__error,
+input:invalid:not(:placeholder-shown):not([untouched])~.form__btn--file,
+[invalid]~.form__error,
+[invalid]~.form__label,
+[invalid]~.select-selected,
+[invalid]~.form__btn--file {
+    color: var(--invalid-accent) !important;
+}
